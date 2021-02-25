@@ -25,7 +25,7 @@ export function ChallengeBox() {
             <main>
               <img src={`icons/${activeChallenge.type}.svg`} alt="Desafio"/>
               <strong>Novo desafio</strong>
-              <p>{activeChallenge.description}.</p>
+              <p>{activeChallenge.description}</p>
             </main>
 
             <footer>

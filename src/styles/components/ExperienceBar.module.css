@@ -1,6 +1,7 @@
 .experienceBar {
   display: flex;
   align-items: center;
+  color: var(--title);
 }
 
 .experienceBar span {

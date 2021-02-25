@@ -30,11 +30,11 @@
 }
 
 .countdown > div span:first-child {
-  border-right: 1px solid #f0f1f3;
+  border-right: 1px solid var(--gray-line);
 }
 
 .countdown > div span:last-child {
-  border-left: 1px solid #f0f1f3;
+  border-left: 1px solid var(--gray-line);
 }
 
 .startCountdownButton {
@@ -50,7 +50,7 @@
   border-radius: 5px;
 
   background-color: var(--blue);
-  color: var(--white);
+  color: var(--default-text);
 
   font-size: 1.5rem;
   font-weight: 600;
