@@ -19,6 +19,7 @@
   --text: #666;
   --default-text: #FFF;
   --title: #2E384D;
+  --overlay: #f2f3f5cc;
   background-color: var(--background);
 }
 
@@ -29,6 +30,7 @@
   --text: #ddd !important;
   --default-text: #ccc;
   --title: #ccc;
+  --overlay: #0d0c0bcc;
   background-color: var(--background);
 }
 
