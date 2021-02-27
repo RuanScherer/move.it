@@ -1,0 +1,128 @@
+.loginContainer {
+  min-height: 100vh;
+
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+
+  background-color: var(--blue);
+}
+
+.loginContainer > section:first-child {
+  margin-bottom: 4rem;
+
+  display: flex;
+  align-items: center;
+}
+
+.loginContainer > section:first-child > img {
+  height: 80%;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  color: #FFF;
+  
+  width: 80%;
+  padding: 1rem 0
+}
+
+.loginForm > img {
+  margin-bottom: 5rem;
+}
+
+.loginForm > h1 {
+  font-size: 2.25rem;
+}
+
+.githubInformation {
+  display: flex;
+  align-items: center;
+
+  margin: 2.2rem 0;
+  width: 75%;
+  
+  opacity: .7;
+
+  font-size: 1.25rem;
+}
+
+.githubInformation > img {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.loginForm > div:last-child {
+  display: flex;
+  align-items: center;
+  
+  height: 5rem;
+}
+
+.loginForm > div > input {
+  height: 100%;
+  width: 100%;
+  padding: 0 2rem;
+
+  font-size: 1.25rem;
+
+  border: 0;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+
+  outline: none;
+  background: linear-gradient(90deg, #4953B8 0%, rgba(73, 83, 184, 0.2) 100%);
+
+  caret-color: #fff;
+  color: #fff;
+}
+
+.loginForm > div > input::placeholder {
+  color: var(--title)
+}
+
+.loginForm > div > button {
+  height: 100%;
+  padding: 0 1.6rem;
+  
+  background-color: var(--green);
+
+  border: 0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: .2s
+}
+
+.loginForm > div > button:disabled {
+  background-color: var(--blue-dark);
+}
+
+.loginForm > div > button:not(:disabled):hover {
+  filter: brightness(.9);
+}
+
+.githubInformation > img {
+  margin-right: .7rem;
+}
+
+@media (min-width: 850px) {
+  .loginContainer {
+    display: grid !important;
+    gap: 6.25rem;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .loginContainer > section:first-child {
+    margin-bottom: 0;
+  }
+}

@@ -4,13 +4,17 @@
   box-sizing: border-box;
 }
 
+::selection {
+  color: var(--blue);
+  background: #FFF9;
+}
+
 :root {
   --red: #E83F5B;
   --green: #4CD62B;
   --blue: #5965E0;
   --blue-dark: #4953B8;
   --blue-twitter: #2AA9E0;
-  background-color: var(--background);
 }
 
 .LIGHT {
