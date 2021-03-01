@@ -1,63 +1,62 @@
-import React from "react";
-import { GetServerSideProps } from "next"
-import Head from "next/head";
-import { CompletedChallenges } from "../components/CompletedChallenges";
-import { Countdown } from "../components/Countdown";
-import { ExperienceBar } from "../components/ExperienceBar";
-import { Profile } from "../components/Profile";
-import { ChallengeBox } from "../components/ChallengeBox";
-import styles from "../styles/pages/Home.module.css"
-import { CountdownProvider } from "../contexts/CountdownContext";
-import { ChallengesProvider } from "../contexts/ChallengesContext";
-import { ThemeSwitcher } from "../components/ThemeSwitcher";
+import Head from "next/head"
+import { useRouter } from 'next/router'
+import { useState } from "react"
+import axios from 'axios'
+import styles from "../styles/pages/Login.module.css"
 
-interface HomeProps {
-  level: number
-  currentExperience: number
-  challengesCompleted: number
-}
+export default function Login() {
+  const [username, setUsername] = useState("")
+  const { replace } = useRouter()
 
-export default function Home(props: HomeProps) {
-  return (
-    <ChallengesProvider 
-      level={props.level}
-      currentExperience={props.currentExperience}
-      challengesCompleted={props.challengesCompleted}>
-      <div className={styles.container}>
-        <Head>
-          <title>Home | Move.it</title>
-        </Head>
-
-        <ThemeSwitcher/>
-
-        <ExperienceBar/>
-
-        <CountdownProvider>
-          <section style={{ marginTop: '1rem' }}>
-            <div>
-              <Profile/>
-              <CompletedChallenges/>
-              <Countdown/>
-            </div>
-            
-            <div>
-              <ChallengeBox/>
-            </div>
-          </section>
-        </CountdownProvider>
-      </div>
-    </ChallengesProvider>
-  )
-}
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { level, currentExperience, challengesCompleted } = context.req.cookies
-
-  return {
-    props: {
-      level: Number(level), 
-      currentExperience: Number(currentExperience), 
-      challengesCompleted: Number(challengesCompleted)
+  function handleLogin() {
+    if (username) {
+      axios.get(`https://api.github.com/users/${username}`, {
+        headers: {
+          Accept: 'application/vnd.github.v3+json'
+        }
+      }).then(response => {
+        localStorage.setItem("userPhoto", response.data.avatar_url)
+        localStorage.setItem("userName", response.data.name)
+      }).catch(error => {
+        console.log(error)
+      }).finally(() => {
+        replace("/home")
+      })
     }
   }
+
+  return (
+    <main className={styles.loginContainer}>
+      <Head>
+        <title>Login | Move.it</title>
+      </Head>
+
+      <section>
+        <img src="login-background.svg" alt="Ilustração de fundo"/>
+      </section>
+
+      <section className={styles.loginForm}>
+        <img src="/logo.svg" alt="Logo"/>
+
+        <h1>Bem-vindo</h1>
+
+        <div className={styles.githubInformation}>
+          <img src="/icons/github-logo.svg" alt="Logo do Github"/>
+          <span>Faça login com seu Github para começar</span>
+        </div>
+
+        <div>
+          <input 
+            type="text"
+            placeholder="Digite seu username"
+            value={username}
+            onChange={event => setUsername(event.target.value)}
+          />
+          <button disabled={!username} onClick={handleLogin}>
+            <img src="/icons/arrow-right.svg" alt="Avançar"/>
+          </button>
+        </div>
+      </section>
+    </main>
+  )
 }
