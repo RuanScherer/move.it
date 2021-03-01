@@ -11,14 +11,7 @@
 }
 
 .loginContainer > section:first-child {
-  margin-bottom: 4rem;
-
-  display: flex;
-  align-items: center;
-}
-
-.loginContainer > section:first-child > img {
-  height: 80%;
+  display: none;
 }
 
 .loginForm {
@@ -29,7 +22,8 @@
   color: #FFF;
   
   width: 80%;
-  padding: 1rem 0
+  padding: 2rem;
+  margin: 0 auto;
 }
 
 .loginForm > img {
@@ -82,6 +76,10 @@
   color: #fff;
 }
 
+.loginForm > div > input:focus {
+  border: 2px solid #414AA3
+}
+
 .loginForm > div > input::placeholder {
   color: var(--title)
 }
@@ -120,9 +118,23 @@
     display: grid !important;
     gap: 6.25rem;
     grid-template-columns: 1fr 1fr;
+
+    margin: 0;
   }
 
   .loginContainer > section:first-child {
-    margin-bottom: 0;
+    margin-bottom: 4rem;
+  
+    display: flex;
+    align-items: center;
+  }
+  
+  .loginContainer > section:first-child > img {
+    height: 80%;
+    max-width: 100%;
+  }
+
+  .loginForm {
+    padding: 1rem 0
   }
 }
