@@ -11,7 +11,9 @@
 
 :root {
   --red: #E83F5B;
+  --red-opacity: #E83F5B44;
   --green: #4CD62B;
+  --green-opacity: #4CD62B44;
   --blue: #5965E0;
   --blue-dark: #4953B8;
   --blue-twitter: #2AA9E0;

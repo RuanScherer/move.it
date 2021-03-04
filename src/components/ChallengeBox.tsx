@@ -17,7 +17,7 @@ export function ChallengeBox() {
   }
 
   return (
-    <div className={styles.challengeBox}>
+    <div className={styles.challengeBox} data-active={!!activeChallenge}>
       { activeChallenge
         ? <div className={styles.challengeActive}>
             <header>Ganhe {activeChallenge.amount} xp</header>
