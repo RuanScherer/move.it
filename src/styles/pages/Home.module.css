@@ -2,11 +2,16 @@
   min-height: 100vh;
   max-width: 992px;
   margin: auto;
-  padding: 2.5rem 2rem;
+  padding-right: 2rem;
 
   display: flex;
-  flex-direction: column;
   background-color: var(--background);
+}
+
+.container > div {
+  flex: 1;
+  padding: 2.5rem 0;
+  margin: auto auto auto 7rem;
 }
 
 .container section {

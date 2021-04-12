@@ -10,6 +10,7 @@ import styles from "../styles/pages/Home.module.css"
 import { CountdownProvider } from "../contexts/CountdownContext";
 import { ChallengesProvider } from "../contexts/ChallengesContext";
 import { ThemeSwitcher } from "../components/ThemeSwitcher";
+import { Sidebar } from "../components/Sidebar";
 
 interface HomeProps {
   level: number
@@ -24,27 +25,31 @@ export default function Home(props: HomeProps) {
       currentExperience={props.currentExperience}
       challengesCompleted={props.challengesCompleted}>
       <div className={styles.container}>
-        <Head>
-          <title>Home | Move.it</title>
-        </Head>
+        <Sidebar />
 
-        <ThemeSwitcher/>
+        <div>
+          <Head>
+            <title>Home | Move.it</title>
+          </Head>
 
-        <ExperienceBar/>
+          <ThemeSwitcher/>
 
-        <CountdownProvider>
-          <section style={{ marginTop: '1rem' }}>
-            <div>
-              <Profile/>
-              <CompletedChallenges/>
-              <Countdown/>
-            </div>
-            
-            <div>
-              <ChallengeBox/>
-            </div>
-          </section>
-        </CountdownProvider>
+          <ExperienceBar/>
+
+          <CountdownProvider>
+            <section style={{ marginTop: '1rem' }}>
+              <div>
+                <Profile/>
+                <CompletedChallenges/>
+                <Countdown/>
+              </div>
+              
+              <div>
+                <ChallengeBox/>
+              </div>
+            </section>
+          </CountdownProvider>
+        </div>
       </div>
     </ChallengesProvider>
   )

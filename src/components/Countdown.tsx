@@ -8,7 +8,6 @@ export function Countdown() {
   const [secondLeft, secondRight] = String(seconds).padStart(2, '0').split('')
   const totalSeconds = seconds + (minutes * 60)
   const progress = (totalSeconds / (.2 * 60)) * 100
-  console.log(progress)
 
   return (
     <div>
